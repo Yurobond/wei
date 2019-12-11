@@ -1,0 +1,44 @@
+Option Base 1
+
+Sub test()
+
+Dim ary As Variant, j As Integer, s As Integer, z As Integer
+Dim Expression As String, Reversewording As String
+Dim Coll As Collection
+Dim NONO
+
+Expression = InputBox("Please enter a Swear word")
+
+ary = ConverttoArray(Expression)
+
+Reversewording = ""
+
+    For j = Len(Expression) To 1 Step -1
+
+        Reversewording = Reversewording + ary(j)
+
+    Next j
+
+Cells(1, 1) = Reversewording
+
+End Sub
+
+Public Function ConverttoArray(Str As String) As Variant
+
+
+Dim StringLength As Integer, LenCount As Integer, i As Integer
+Dim Arry() As String
+Dim item As Variant
+
+StringLength = Len(Str)
+ReDim Arry(StringLength)
+
+    For i = 1 To StringLength
+    
+    Arry(i) = Mid(Str, i, 1)
+    
+    Next
+
+    ConverttoArray = Arry
+
+End Function 
